@@ -1,20 +1,119 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-sidenav-container fullscreen>
+    <mat-sidenav class="sidenav" mode="push" #navbar>
+        <h4 style="margin-left: 10px;">Navigation</h4>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Dashboard</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Navigation</a>
+        </mat-nav-list>
+        <br>
+        <mat-divider></mat-divider>
+        <h4 style="margin-left: 10px;">UI Element</h4>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Basic</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Advanced</a>
+        </mat-nav-list>
+        <br>
+        <mat-divider></mat-divider>
+        <h4 style="margin-left: 10px;">Forms</h4>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Form</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Form Picker</a>
+        </mat-nav-list>
+        <br>
+        <mat-divider></mat-divider>
+        <h4 style="margin-left: 10px;">Tables</h4>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Bootstrap table</a>
+        </mat-nav-list>
+        <mat-nav-list>
+          <a href="#" mat-list-item>Data table</a>
+        </mat-nav-list>
+        <br>
+        <mat-divider></mat-divider>
+    </mat-sidenav>
+    <!-- Body -->
+    <mat-sidenav-content>
+      <button style="margin-left: 15px;" mat-icon-button (click)="navbar.toggle()">
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
+      <br>
 
+      <!-- Body Content Start -->
+
+      <!-- First Row -->
+      <mat-grid-list style="margin: 20px;" cols="4" rowHeight="2:1" gutterSize=20>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #42a5f5, #90caf9); border-radius: 3px;  box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Blue box -->
+          <app-info-card mainText="Orders Received" icon="shopping_cart" final="Completed Orders" iconVal="234" finalVal="197"></app-info-card>          
+        </mat-grid-tile>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #26a69a, #80cbc4); border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Teal box -->
+          <app-info-card mainText="Total Sales" icon="local_offer" final="This Month" iconVal="1641" finalVal="213"></app-info-card>
+        </mat-grid-tile>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #ffa726, #ffcc80); border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Orange box-->
+          <app-info-card mainText="Revenue" icon="attach_money" final="This Month" iconVal="42,562" finalVal="5,022"></app-info-card>
+        </mat-grid-tile>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #ec407a, #f48fb1); border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Pink box -->
+          <app-info-card mainText="Total Profit" icon="trending_up" final="This Month" iconVal="9,562" finalVal="542"></app-info-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+      <!-- Second Row -->
+      <mat-grid-list style="margin: 20px;" cols="3" rowHeight="3:2" gutterSize=20>
+        <mat-grid-tile colspan="2" style="border-radius: 3px; border: solid 1px white">
+          <!-- Blue box -->          
+          <app-area-chart></app-area-chart>
+        </mat-grid-tile>
+        <mat-grid-tile style="border-radius: 3px; border: solid 1px white">
+          <!-- Teal box -->
+          <app-donut-chart></app-donut-chart>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <!-- Third Row -->
+      <mat-grid-list style="margin: 20px;" cols="4" rowHeight="2:1" gutterSize=20>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #26a69a, #80cbc4); border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Blue box -->
+          <app-density-chart-one></app-density-chart-one>
+        </mat-grid-tile>
+        <mat-grid-tile style="background-image: linear-gradient(to right, #42a5f5, #90caf9); border-radius: 3px;  box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Teal box -->
+          <app-density-chart-two></app-density-chart-two>
+        </mat-grid-tile>
+        <mat-grid-tile style="background-color: #212121; color: white; border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Orange box-->
+          <app-social-media-info title="New Users" icon="keyboard_arrow_up" value="+52%"></app-social-media-info>
+        </mat-grid-tile>
+        <mat-grid-tile style="background-image: url('http://ginva.com/wp-content/uploads/2016/08/img_57a0010d27c7f.png'); background-size: cover; border-radius: 3px; box-shadow: 2px 2px 10px lightslategray;">
+          <!-- Pink box -->
+          <app-social-media-info title="Bounce Ratio" icon="keyboard_arrow_down" value="-82%"></app-social-media-info>
+        </mat-grid-tile>
+      </mat-grid-list>
+      
+      <!-- Fourth row -->
+      <mat-tab-group mat-stretch-tabs dynamicHeight=true>
+        <mat-tab label="Home">
+          <app-table></app-table>
+        </mat-tab>
+        <mat-tab label="Security">
+          <app-table></app-table>  
+        </mat-tab>
+        <mat-tab label="Entertainment">
+          <app-table></app-table>
+        </mat-tab>
+        <mat-tab label="Big Data">
+          <app-table></app-table>
+        </mat-tab>
+      </mat-tab-group>
+
+      <!-- Body Content End -->
+    </mat-sidenav-content>    
+</mat-sidenav-container>
